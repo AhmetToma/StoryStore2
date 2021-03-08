@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewData["Title"] = "Storyies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="input-group" style="margin-top:1.7rem">
+
+                <input id="inp-storyBoard-storyName" style="border-radius:0.5rem;" class="form-control" placeholder="story Name">
+            </div>
+        </div>
+
+        <div class="col-md-5">
+
+            <nav aria-label="Page navigation example" class="nav-review" style="margin:2rem 0">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a id="btn-storyBoard-previous" class="page-link" href="" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a id="num-storyBoard-pageNumber" class="page-link" href="">1</a></li>
+                    <li class="page-item">
+                        <a id="btn-storyBoard-next" class="page-link" href="" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="stories-storiesBoard">
+    <div class="col-md-3">
+        <div class="movie-card">
+            <div class="movie-header manOfSteel">
+            </div>
+            <!--movie-header-->
+            <div class="movie-content">
+                <div class="movie-content-header">
+                    <a href="#">
+                        <h3 class="movie-title">Story Name</h3>
+                    </a>
+                </div>
+                <div class="movie-info">
+
+                    <!--date,time-->
+                    <!--screen-->
+                    <div class="info-section">
+                        <label>Author</label>
+                        <span>Mehmet Ozan</span>
+                    </div>
+                    <!--row-->
+                    <div class="info-section">
+                        <label>Range</label>
+                        <span>3-15 age</span>
+                    </div>
+                    <!--seat-->
+                </div>
+            </div>
+            <!--movie-content-->
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="recordNotFound" id="recordNotFound_storyBoard">
+    <h3 style="text-align:center">No Story Has been founded!</h3>
+</div>
+
+

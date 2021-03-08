@@ -1,0 +1,62 @@
+﻿@model StoryStore.Data.Story
+
+@{
+    ViewData["Title"] = "GetStoryDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <div class="movie_card" id="bright">
+        <div class="info_section">
+            <div class="movie_header">
+                <img class="locandina" src="@Model.ImageUrl" />
+                <h1>@Model.StoryName</h1>
+                <h4>@Model.Author</h4>
+            </div>
+            <div class="movie_desc">
+                <p class="text">
+                    Your browser does not support the audio element.  Your browser does not support the audio element.
+                    
+
+                    Your browser does not support the audio element.
+                    @Model.Description
+                </p>
+            </div>
+            <div class="movie_social">
+                <p> @Model.AgeRange.Range Age</p>
+            </div>
+        </div>
+        <div class="blur_back bright_back"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        @if (Model.PdfUrl != "")
+        {
+            <embed src="../@Model.PdfUrl" width="700" height="400">
+        }
+        else
+        {
+            <p>no pdf file has been founded</p>
+        }
+
+    </div>
+
+    <div class="col-md-6">
+        @if (Model.AudioUrl != "")
+        {
+
+            <audio controls>
+                <source src="horse.ogg" type="audio/ogg">
+                <source src="/StoryAudios/16-ليلى .mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        }
+        else
+        {
+            <p>no audio file has been founded</p>
+        }
+    </div>
+
+</div>
+
+

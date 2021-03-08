@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewData["Title"] = "DeleteStory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-setUp">
+    <div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="input-group" style="margin-top:1.7rem">
+                    
+                    <input id="inp-storyActions-storyName" style="border-radius:0.5rem;" class="form-control" placeholder="story Name">
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1" style="color:black">select table row count : </label>
+                    <select style="color:black" class="form-control" id="select-storyActions-selectRowCount"></select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group" style="margin-top:1.7rem">
+                    <button id="btn-storyActions-resetSearch" class="btn" style="background:#2A3F54;color:white">Reset Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table table-bordered tableFontMaxmize">
+        <caption> Story Count: <span style="color:black;font-weight:bold" id="span-storyActions-rowCount"></span></caption>
+        <thead>
+            <tr>
+                <th scope="col">Story Id</th>
+                <th scope="col">Story Name</th>
+                <th scope="col">Author</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody id="table-storyActions"></tbody>
+    </table>
+    <div class="recordNotFound" id="recordNotFound_storyActions">
+        <h3 style="text-align:center">No story has been founded!</h3>
+    </div>
+    <nav aria-label="Page navigation example" class="nav-review">
+        <ul class="pagination">
+            <li class="page-item">
+                <a id="btn-storyActions-previous" class="page-link" href="" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            <li class="page-item"><a id="num-storyActions-pageNumber" class="page-link" href="">1</a></li>
+            <li class="page-item">
+                <a id="btn-storyActions-next" class="page-link" href="" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

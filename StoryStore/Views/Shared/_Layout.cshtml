@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sag Hidrolik</title>
+    <!-- Bootstrap -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+          integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="~/css/site.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link rel="stylesheet" href="~/css/sweetAlertCss.css">
+
+    <link href="~/css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/sweetAlertCss.css">
+    <link rel="stylesheet" href="~/css/myStyle.css">
+    <script src="~/js/jquery.min.js"></script>
+
+</head>
+<body class="nav-md footer_fixed ">
+    <div class="loader-Container">
+        <div class="lds-hourglass"></div>
+    </div>
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col" style="height:1000px">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="/" class="site_title"><i class="fas fa-book"></i><span>Story Store </span></a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        <div class="profile_pic">
+                            <img src="~/images/logo.png" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <h2> Dashboard</h2>
+                        </div>
+                    </div>
+                    <!-- /menu profile quick info -->
+                    <br />
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3></h3>
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a href="/Home/Stories"><i class="fas fa-book-open fa-2x"></i> <span style="font-size:15px">Stories</span> </a>
+                                </li>
+                                @if (@User.Identity.IsAuthenticated && @User.IsInRole("Admin"))
+                                {
+                                    <li>
+                                        <a href="/Home/AddNewStory"><i class="fas fa-2x fa-plus-square"></i> <span style="font-size:15px">Add New Story</span> </a>
+                                    </li>
+                                }
+
+                                @if (@User.Identity.IsAuthenticated && @User.IsInRole("Admin"))
+                                {
+                                    <li>
+                                        <a href="/Home/DeleteStory"><i class="fas  fa-2x fa-trash"></i> <span style="font-size:15px">Delete Story</span> </a>
+                                    </li>
+                                }
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+                    <nav class="nav navbar-nav">
+                        <ul class=" navbar-right" style="display:flex;justify-content:space-between">
+
+                            <li class="">
+                                Role:  <span style="color:#b13e5b" id="layout-roleName">Admin</span>
+                            </li>
+
+                            <li class="">
+                                Age Range:  <span style="color:#b13e5b" id="layout-ageRange"></span>
+                            </li>
+                            <li class="">
+                                <a href="/Home/Logout" class=" btn btn-danger">LogOut</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                @RenderBody()
+
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/sweetalert2.min.js"></script>
+    @*<script src="~/js/fastclick.js"></script>
+        <script src="~/js/nprogress.js"></script>
+        <script src="~/js/jquery.mCustomScrollbar.concat.min.js"></script>*@
+    <script src="~/js/custom.js"></script>
+    <script src="~/JsData/signup.js"></script>
+    <script src="~/JsData/storiesActions.js"></script>
+    <script src="~/JsData/addNewStory.js"></script>
+    <script src="~/JsData/stories.js"></script>
+
+</body>
+</html>
+
+
+<script>
+
+    $(function () {
+
+        $.ajax({
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            url: "/Home/GetRoleAndRange",
+            success: (response) => {
+                console.log('rol', response);
+
+                response.roleName === "Admin" ? $("#layout-ageRange").text("All") :
+                    $("#layout-ageRange").text(response.range);
+                $("#layout-roleName").text(response.roleName);
+            }     
+        });
+
+
+    })
+</script>
+
+
+
+
