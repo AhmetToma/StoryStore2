@@ -27,7 +27,9 @@ bld/
 [Oo]bj/
 [Ll]og/
 
-
+StoryImages/
+StoryAudios/
+StoryPdfs/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
