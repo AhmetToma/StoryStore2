@@ -112,7 +112,7 @@ namespace StoryStore
                     Email = "Admin@gmail.com",
                     AgeRangeId=2
                 };
-                var adminPassword = "aAj120_*!";
+                var adminPassword = "123456";
 
                 var createPowerUser = await userManager.CreateAsync(poweruser, adminPassword);
                 if (createPowerUser.Succeeded)
