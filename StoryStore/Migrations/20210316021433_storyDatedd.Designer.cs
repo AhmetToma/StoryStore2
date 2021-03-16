@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StoryStore.DataModels;
 
 namespace StoryStore.Migrations
 {
     [DbContext(typeof(StoryStoreDbContext))]
-    partial class StoryStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210316021433_storyDatedd")]
+    partial class storyDatedd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -4,7 +4,9 @@ $(function () {
 
     if (window.location.pathname === pathUrl) {
         getAgeRange("#addNewStory-selectAgeRange");
-
+        $('#addNewStory-date').datepicker({
+            dateFormat: 'dd/mm/yy',
+        });
     }
 });
 
@@ -24,7 +26,8 @@ $("#addNewStory").click(e => {
         storyName: $("#addNewStory-storyName").val(),
         AuthorName: $("#addNewStory-AuthorName").val(),
         description: $("#addNewStory-Description").val(),
-        ageRangeId: parseInt($("#addNewStory-selectAgeRange").val())
+        ageRangeId: parseInt($("#addNewStory-selectAgeRange").val()),
+        storyDate: $("#addNewStory-date").val(),
     }
     console.log(storyImage);
     formData.append("storyImage", storyImage);
@@ -34,13 +37,15 @@ $("#addNewStory").click(e => {
     formData.append("AuthorName", story.AuthorName);
     formData.append("description", story.description);
     formData.append("ageRangeId", story.ageRangeId);
+    formData.append("ageRangeId", story.ageRangeId);
+    formData.append("StoryDate", story.storyDate);
 
 
     if (story.ageRangeId === "" || story.storyName === "" || story.description === "" || story.author === "") {
         Swal.fire({
             type: 'error',
-            title: "This Fields is Required : story name,Description,author,age Range",
-            timer: 10000
+            title: "these Fields is Required : story name,Description,author,age Range",
+            timer: 20000
         });
     }
 

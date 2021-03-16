@@ -15,7 +15,8 @@ namespace StoryStore.Data
         public string PdfUrl { get; set; }
         public string AudioUrl { get; set; }
         public string ImageUrl { get; set; }
-    
+        public DateTime? StoryDate { get; set; } = DateTime.Now;
+
         [ForeignKey(nameof(AgeRangeId))]
         public int AgeRangeId { get; set; }
 

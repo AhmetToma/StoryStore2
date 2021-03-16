@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -154,11 +155,23 @@ namespace StoryStore.Controllers
             {
                 try
                 {
+                    
                     Story story = new Story();
                     story.StoryName = addStoryModel.storyName;
                     story.Description = addStoryModel.Description;
                     story.Author = addStoryModel.AuthorName;
                     story.AgeRangeId = addStoryModel.AgeRangeId;
+
+
+                    if (addStoryModel.StoryDate == "" || addStoryModel.StoryDate==null)
+                    {
+                        story.StoryDate = DateTime.Now;
+
+                    }
+                    else
+                    {
+                        story.StoryDate = DateTime.ParseExact(addStoryModel.StoryDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    }
 
                     await _db.Stories.AddAsync(story);
                     await _db.SaveChangesAsync();

@@ -1,7 +1,7 @@
 ﻿@model StoryStore.Data.Story
 
 @{
-    ViewData["Title"] = "GetStoryDetails";
+    ViewData["Title"] = "StoryDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div>
@@ -11,19 +11,17 @@
                 <img class="locandina" src="@Model.ImageUrl" />
                 <h1>@Model.StoryName</h1>
                 <h4>@Model.Author</h4>
+                <p> @Model.StoryDate?.ToString(@"dd/MM/yyyy")</p>
             </div>
             <div class="movie_desc">
                 <p class="text">
-                    Your browser does not support the audio element.  Your browser does not support the audio element.
-                    
-
-                    Your browser does not support the audio element.
                     @Model.Description
                 </p>
             </div>
             <div class="movie_social">
                 <p> @Model.AgeRange.Range Age</p>
             </div>
+            
         </div>
         <div class="blur_back bright_back"></div>
     </div>

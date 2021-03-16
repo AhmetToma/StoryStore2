@@ -22,5 +22,7 @@ namespace StoryStore.Models
         public IFormFile PdfFile { get; set; }
         public IFormFile AudioFile { get; set; }
 
+        public string StoryDate { get; set; } = "";
+
     }
 }

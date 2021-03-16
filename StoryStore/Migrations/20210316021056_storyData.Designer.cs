@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StoryStore.DataModels;
 
 namespace StoryStore.Migrations
 {
     [DbContext(typeof(StoryStoreDbContext))]
-    partial class StoryStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210316021056_storyData")]
+    partial class storyData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -190,7 +192,7 @@ namespace StoryStore.Migrations
                     b.Property<string>("PdfUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("StoryDate")
+                    b.Property<DateTime>("StoryDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("StoryName")
